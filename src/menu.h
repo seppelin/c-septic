@@ -1,2 +1,5 @@
+#pragma once
 
-void menuRun();
+#include "app.h"
+
+Scene menuRun();
