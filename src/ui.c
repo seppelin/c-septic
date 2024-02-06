@@ -7,7 +7,6 @@ Button buttonInit(Image img, int x, int y, int width, int height) {
   ImageResize(&resize_img, width, height);
   Texture texture = LoadTextureFromImage(resize_img);
   UnloadImage(resize_img);
-  SetTextureFilter(texture, 0);
 
   Rectangle rect = {x, y, width, height};
   Rectangle p_rect = {
@@ -16,9 +15,7 @@ Button buttonInit(Image img, int x, int y, int width, int height) {
       rect.width * 1.1,
       rect.height * 1.1,
   };
-
-  Button b = {texture, {rect, p_rect}, 0};
-  return b;
+  return (Button){texture, {rect, p_rect}, 0};
 }
 
 Button buttonInitText(int x, int y, char *text, int size, Color tint) {
@@ -28,7 +25,6 @@ Button buttonInitText(int x, int y, char *text, int size, Color tint) {
   ImageDrawText(&img, text, 5, 5, size, tint);
   ImageDrawRectangleLines(&img, (Rectangle){ 0, 0, img.width, img.height }, 2, tint);
   Button b = buttonInit(img, x, y, img.width, img.height);
-
   UnloadImage(img);
 
   return b;
