@@ -16,7 +16,7 @@ typedef struct {
   int moves;
 } GobBoard;
 
-GobBoard gobInit();
+GobBoard gobBoardInit();
 uint gobTopView(uint layers[2][3], int sign);
 uint gobIsMovable(uint layers[2][3], int sign, int size, int pos);
 uint gobIsFree(uint layers[2][3], int size, int pos);
