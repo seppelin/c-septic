@@ -14,7 +14,7 @@ int isClicked(int x, int y) {
   return is_x && is_y;
 }
 
-void update(BoardUi *self, Board *board) {
+void boardUiUpdate(BoardUi *self, Board *board) {
   if (!IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
     return;
   // Board
@@ -82,7 +82,7 @@ void drawPiece(int x, int y, int sign, int size, int selected) {
     DrawCircle(cx, cy, 15, YELLOW);
 }
 
-void draw(BoardUi *self, Board *board) {
+void boardUiDraw(BoardUi *self, Board *board) {
   // Draw lines
   for (int step = 0; step < 4; step++) {
     int add = step * field_size;
@@ -141,7 +141,3 @@ BoardUi boardUiInit(int x, int y) {
   return ui;
 }
 
-void boardUiTick(BoardUi *self, Board *board) {
-  update(self, board);
-  draw(self, board);
-}

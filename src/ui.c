@@ -20,7 +20,7 @@ Button buttonInit(Image img, int x, int y, int width, int height) {
 
 Button buttonInitText(int x, int y, char *text, int size, Color tint) {
   int len = MeasureText(text, size);
-  Image img = GenImageColor(len + 10, size + 10, BLANK);
+  Image img = GenImageColor(len + 13, size + 10, BLANK);
 
   ImageDrawText(&img, text, 5, 5, size, tint);
   ImageDrawRectangleLines(&img, (Rectangle){ 0, 0, img.width, img.height }, 2, tint);

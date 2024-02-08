@@ -15,34 +15,23 @@ int topView(int layers[2][3], int sign) {
 }
 
 int isMovable(int layers[2][3], int sign, int size, int pos) {
-  int bigger; // bigger pieces
+  int bigger = 0; // w default
   switch (size) {
   case 0:
-    bigger = layers[0][1] | layers[1][1] | layers[0][2] | layers[1][2];
-    break;
+    bigger |= layers[0][1] | layers[1][1];
   case 1:
-    bigger = layers[0][2] | layers[1][2];
-    break;
-  case 2:
-    bigger = 0;
-    break;
+    bigger |= layers[0][2] | layers[1][2];
   }
   return ((1 << pos) & layers[sign][size] & (~bigger)) != 0;
 }
 
 int isFree(int layers[2][3], int size, int pos) {
-  int same;
+  int same = layers[0][2] | layers[1][2];
   switch (size) {
   case 0:
-    same = layers[0][0] | layers[1][0] | layers[0][1] | layers[1][1] |
-           layers[0][2] | layers[1][2];
-    break;
+    same |= layers[0][0] | layers[1][0];
   case 1:
-    same = layers[0][1] | layers[1][1] | layers[0][2] | layers[1][2];
-    break;
-  case 2:
-    same = layers[0][2] | layers[1][2];
-    break;
+    same |= layers[0][1] | layers[1][1] ;
   }
   return ((1 << pos) & same) == 0;
 }

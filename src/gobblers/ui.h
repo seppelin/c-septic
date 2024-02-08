@@ -16,4 +16,5 @@ typedef struct {
 } BoardUi;
 
 BoardUi boardUiInit(int x, int y);
-void boardUiTick(BoardUi *self, Board *board);
+void boardUiDraw(BoardUi *self, Board *board);
+void boardUiUpdate(BoardUi *self, Board *board);
